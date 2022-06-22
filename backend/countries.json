@@ -1,0 +1,98 @@
+{
+    "countries": [
+    {
+        "country": "Brasil",
+        "cities": [
+            {
+                "city": "São Paulo",
+                "latitude": -23.54,
+                "longitude": -46.64
+            },
+            {
+                "city": "Gramado",
+                "latitude": -29.36,
+                "longitude": -50.87
+            },
+            {
+                "city": "Cuiabá",
+                "latitude": -15.59,
+                "longitude": -56.09
+            },
+            {
+                "city": "Recife",
+                "latitude": -8.05,
+                "longitude": -34.88
+            },
+            {
+                "city": "Manaus",
+                "latitude": -3.10,
+                "longitude": -60.02
+            }
+        ]
+    },
+    {
+        "country": "Canadá",
+        "cities": [
+            {
+                "city": "Montreal",
+                "latitude": 45.51,
+                "longitude": -73.65
+            },
+            {
+                "city": "Ottawa",
+                "latitude": 45.42,
+                "longitude": -75.69
+            },
+            {
+                "city": "Vancouver",
+                "latitude": 49.30,
+                "longitude": -123.10
+            }
+        ]
+    },
+    {
+        "country": "Egito",
+        "cities": [
+            {
+                "city": "Cairo",
+                "latitude": 30.04,
+                "longitude":  31.24
+            }
+        ]
+    },
+    {
+        "country": "Bélgica",
+        "cities": [
+            {
+                "city": "Bruxelas",
+                "latitude": 50.83,
+                "longitude": 4.35
+            },
+            {
+                "city": "Bruges",
+                "latitude": 51.2,
+                "longitude": 3.21
+            }
+        ]
+    },
+    {
+        "country": "Japão",
+        "cities": [
+            {
+                "city": "Tóquio",
+                "latitude": 35.68,
+                "longitude": 139.69
+            },
+            {
+                "city": "Quioto",
+                "latitude": 35.01,
+                "longitude": 135.76
+            },
+            {
+                "city": "Osaka",
+                "latitude": 34.69,
+                "longitude": 135.50
+            }
+        ]
+    }
+]}
