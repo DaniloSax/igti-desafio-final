@@ -1,1 +1,35 @@
-<mat-card>Simple card</mat-card>
+<mat-card>
+  <mat-card-title>Registrar Viagem</mat-card-title>
+  <mat-card-content>
+
+    <div class="container-viagem">
+      <mat-form-field appearance="fill">
+        <mat-label>País de Origem</mat-label>
+        <mat-select [(value)]="countrySelectOrigin">
+          <mat-option *ngFor="let country of countriesOrigin" [value]="country">{{country.country}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cidade de Origem</mat-label>
+        <mat-select [disabled]="!citiesOrigin?.length">
+          <mat-option *ngFor="let city of citiesOrigin" value="option">{{city.city}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>País de Destino</mat-label>
+        <mat-select [(value)]="countrySelectDestiny">
+          <mat-option *ngFor="let country of countriesDestiny" [value]="country">{{country.country}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cidade de Destino</mat-label>
+        <mat-select [disabled]="!citiesDestiny?.length">
+          <mat-option *ngFor="let city of citiesDestiny" value="option">{{city.city}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

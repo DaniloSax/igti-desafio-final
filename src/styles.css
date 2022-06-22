@@ -3,6 +3,13 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.container-viagem{
+  display: flex;
+  flex-direction: column;
+}
+
 .m-5{
   margin: 3em 3em;
 }
+
+

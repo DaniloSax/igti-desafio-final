@@ -4,15 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
-// components
+// components local
+import { ViagemComponent } from './viagem/viagem.component';
+// components material
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ViagemComponent } from './viagem/viagem.component';
 import { MatCardModule } from '@angular/material/card';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,12 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
