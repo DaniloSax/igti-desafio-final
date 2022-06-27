@@ -20,12 +20,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
+import { SummaryTravelComponent } from './summary-travel/summary-travel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViagemComponent
+    ViagemComponent,
+    SummaryTravelComponent
   ],
   imports: [
     BrowserModule,

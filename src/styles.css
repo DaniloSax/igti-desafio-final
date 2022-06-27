@@ -12,4 +12,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: 3em 3em;
 }
 
+.qtd_viagem{
+  font-size: x-large;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+}
+
 
