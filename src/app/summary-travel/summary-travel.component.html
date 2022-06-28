@@ -1,14 +1,17 @@
 <mat-card>
   <mat-card-title>Resumo da Viagem</mat-card-title>
   <mat-card-content>
+
     <div class="container-viagem">
       <div class="uppercase mt-5">
-        <strong> Origem:</strong> Brasil (São Paulo)
+        <strong> Origem:</strong> {{appViagemService.countrySelectOriginOutput}}
+        ({{appViagemService.citySelectOriginOutput}})
         <mat-divider></mat-divider>
       </div>
 
       <div class="uppercase mt-5">
-        <strong>Destino:</strong> Canadá (Montereal)
+        <strong>Destino:</strong> {{appViagemService.countrySelectDestinyOutput}}
+        ({{appViagemService.citySelectDestinyOutput}})
         <mat-divider></mat-divider>
       </div>
 
@@ -19,13 +22,14 @@
       </div>
 
       <div class="uppercase mt-5">
-        1<strong> adulto(s)</strong>, 0 <strong> criança(s)</strong>
+        {{appViagemService.qtdAdults}}<strong> adulto(s)</strong>, {{appViagemService.qtdchildren}} <strong>
+          criança(s)</strong>
         <mat-divider></mat-divider>
       </div>
 
 
       <div class="uppercase mt-5">
-        <strong>Tipo de Vôo:</strong> Classe Econômica
+        <strong>Tipo de Vôo:</strong> Classe {{appViagemService.form.value.typeFlight}}
         <mat-divider></mat-divider>
       </div>
 
@@ -40,7 +44,7 @@
       </div>
 
       <div class="uppercase mt-5">
-        <strong> Milhas:</strong> 0
+        <strong> Milhas:</strong> {{appViagemService.form.value.miles | number: '5.1-2'}}
         <mat-divider></mat-divider>
       </div>
 

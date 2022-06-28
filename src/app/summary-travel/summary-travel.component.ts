@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppViagemService } from '../services/app-viagem.service';
 
 @Component({
   selector: 'app-summary-travel',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryTravelComponent implements OnInit {
 
-  constructor() { }
+  appViagemService: AppViagemService;
+
+  constructor(appViagemService: AppViagemService) {
+    this.appViagemService = appViagemService;
+  }
 
   ngOnInit(): void {
   }
-
 }
