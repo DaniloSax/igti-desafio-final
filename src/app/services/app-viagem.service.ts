@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { City, Country, HttpService } from './http.service';
+import { City, Country } from './http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,15 +26,10 @@ export class AppViagemService {
   private _citySelectOrigin?: City
   private _citySelectDestiny?: City
 
-  countrySelectOriginOutput?: any
-  countrySelectDestinyOutput?: any
-  citySelectOriginOutput?: any
-  citySelectDestinyOutput?: any
-
-  // ngOnInit(): void {
-  // this.http.getcountries().subscribe(data => this.countriesOrigin = data);
-  // this.http.getcountries().subscribe(data => this.countriesDestiny = data);
-  // }
+  countrySelectOriginOutput?: string
+  countrySelectDestinyOutput?: string
+  citySelectOriginOutput?: string
+  citySelectDestinyOutput?: string
 
   get countrySelectOrigin() {
     return this._countrySelectOrigin ?? null;
@@ -42,6 +37,8 @@ export class AppViagemService {
   set countrySelectOrigin(country) {
     this.citiesOrigin = this.countriesOrigin.find(c => c === country)?.cities
     this.countrySelectOriginOutput = country?.country
+    const c = { value: country }
+    this._countrySelectOrigin = c?.value
   }
 
   get countrySelectDestiny() {
