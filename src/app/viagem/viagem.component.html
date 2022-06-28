@@ -5,29 +5,32 @@
     <div class="container-viagem">
       <mat-form-field appearance="fill">
         <mat-label>País de Origem</mat-label>
-        <mat-select [(value)]="countrySelectOrigin">
-          <mat-option *ngFor="let country of countriesOrigin" [value]="country">{{country.country}}</mat-option>
+        <mat-select [(value)]="appViagemService.countrySelectOrigin">
+          <mat-option *ngFor="let country of appViagemService.countriesOrigin" [value]="country">{{country.country}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
+      {{appViagemService.citySelectOrigin}}
       <mat-form-field appearance="fill">
         <mat-label>Cidade de Origem</mat-label>
-        <mat-select [disabled]="!citiesOrigin?.length">
-          <mat-option *ngFor="let city of citiesOrigin" value="option">{{city.city}}</mat-option>
+        <mat-select [disabled]="!appViagemService.citiesOrigin?.length" [(value)]="appViagemService.citySelectOrigin">
+          <mat-option *ngFor="let city of appViagemService.citiesOrigin" [value]="city">{{city.city}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>País de Destino</mat-label>
-        <mat-select [(value)]="countrySelectDestiny">
-          <mat-option *ngFor="let country of countriesDestiny" [value]="country">{{country.country}}</mat-option>
+        <mat-select [(value)]="appViagemService.countrySelectDestiny">
+          <mat-option *ngFor="let country of appViagemService.countriesDestiny" [value]="country">{{country.country}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Cidade de Destino</mat-label>
-        <mat-select [disabled]="!citiesDestiny?.length">
-          <mat-option *ngFor="let city of citiesDestiny" value="option">{{city.city}}</mat-option>
+        <mat-select [disabled]="!appViagemService.citiesDestiny?.length" [(value)]="appViagemService.citySelectDestiny">
+          <mat-option *ngFor="let city of appViagemService.citiesDestiny" [value]="city">{{city.city}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -35,13 +38,13 @@
         <div>
           <h2>Adultos:</h2>
           <div>
-            <button color="primary" mat-icon-button (click)="incrementQtdAdults()" mat-mini-fab>
+            <button color="primary" mat-icon-button (click)="appViagemService.incrementQtdAdults()" mat-mini-fab>
               <mat-icon>add</mat-icon>
             </button>
             <span color="primary" class="qtd_viagem">
-              {{qtdAdults}}
+              {{appViagemService.qtdAdults}}
             </span>
-            <button color="primary" mat-icon-button (click)="decrementQtdAdults()" mat-mini-fab>
+            <button color="primary" mat-icon-button (click)="appViagemService.decrementQtdAdults()" mat-mini-fab>
               <mat-icon>remove</mat-icon>
             </button>
           </div>
@@ -50,13 +53,13 @@
         <div style="margin-left: 2em;">
           <h2>Crianças:</h2>
           <div>
-            <button color="primary" mat-icon-button (click)="incrementQtdchildren()" mat-mini-fab>
+            <button color="primary" mat-icon-button (click)="appViagemService.incrementQtdchildren()" mat-mini-fab>
               <mat-icon>add</mat-icon>
             </button>
             <span class="qtd_viagem">
-              {{qtdchildren}}
+              {{appViagemService.qtdchildren}}
             </span>
-            <button color="primary" mat-icon-button (click)="decrementQtdchildren()" mat-mini-fab>
+            <button color="primary" mat-icon-button (click)="appViagemService.decrementQtdchildren()" mat-mini-fab>
               <mat-icon>remove</mat-icon>
             </button>
           </div>
@@ -64,14 +67,17 @@
       </div>
 
       <mat-divider style="margin: 1em;"></mat-divider>
-      <mat-radio-group style="display: flex; justify-content: center;" color="primary">
-        <mat-radio-button value="Econômica">Econômica</mat-radio-button>
-        <mat-radio-button style="margin-left: 1em;" value="Executiva">Executiva</mat-radio-button>
-      </mat-radio-group>
+      <form [formGroup]="appViagemService.form">
+        <mat-radio-group formControlName="typeFlight" style="display: flex; justify-content: center;" color="primary">
+          <mat-radio-button value="Econômica">Econômica</mat-radio-button>
+          <mat-radio-button style="margin-left: 1em;" value="Executiva">Executiva
+          </mat-radio-button>
+        </mat-radio-group>
+      </form>
 
       <mat-divider style="margin: 1em;"></mat-divider>
-      <span class="qtd_viagem">Ultilizar {{form.value.miles}} milhas</span>
-      <form [formGroup]="form">
+      <span class="qtd_viagem">Ultilizar {{appViagemService.form.value.miles | number: '5.1-2'}} milhas</span>
+      <form [formGroup]="appViagemService.form">
         <mat-slider thumbLabel min="0" max="100000" tickInterval="1" aria-label="units" color="primary"
           formControlName="miles" style="width: 100%;">
         </mat-slider>
