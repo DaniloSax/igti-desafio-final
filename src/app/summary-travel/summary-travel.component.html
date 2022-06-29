@@ -1,60 +1,67 @@
 <mat-card>
   <mat-card-title>Resumo da Viagem</mat-card-title>
   <mat-card-content>
-
     <div class="container-viagem">
       <div class="uppercase mt-5">
-        <strong> Origem:</strong> {{appViagemService.countrySelectOriginOutput}}
-        ({{appViagemService.citySelectOriginOutput}})
+        <strong> Origem:</strong>
+        {{ appViagemService.countrySelectOrigin.country }} ({{
+          appViagemService.citySelectOrigin.city
+        }})
         <mat-divider></mat-divider>
       </div>
 
       <div class="uppercase mt-5">
-        <strong>Destino:</strong> {{appViagemService.countrySelectDestinyOutput}}
-        ({{appViagemService.citySelectDestinyOutput}})
-        <mat-divider></mat-divider>
-      </div>
-
-
-      <div class="uppercase mt-5">
-        <strong> Distância:</strong> 8.149,9 km
-        {{distance}}
+        <strong>Destino:</strong>
+        {{ appViagemService.countrySelectDestiny.country }} ({{
+          appViagemService.citySelectDestiny.city
+        }})
         <mat-divider></mat-divider>
       </div>
 
       <div class="uppercase mt-5">
-        {{appViagemService.qtdAdults}}<strong> adulto(s)</strong>, {{appViagemService.qtdchildren}} <strong>
-          criança(s)</strong>
-        <mat-divider></mat-divider>
-      </div>
-
-
-      <div class="uppercase mt-5">
-        <strong>Tipo de Vôo:</strong> Classe {{appViagemService.form.value.typeFlight}}
-        <mat-divider></mat-divider>
-      </div>
-
-
-      <div class="uppercase mt-5">
-        R$ 4.074,95 <strong> por adulto</strong>
-        <mat-divider></mat-divider>
-      </div>
-      <div class="uppercase mt-5">
-        R$ 4.074,95 <strong> por criança</strong>
+        <strong> Distância:</strong>
+        {{ distance | number: "4.1-1" }} KM
         <mat-divider></mat-divider>
       </div>
 
       <div class="uppercase mt-5">
-        <strong> Milhas:</strong> {{appViagemService.form.value.miles | number: '5.1-2'}}
+        {{ appViagemService.qtdAdults }}<strong> adulto(s)</strong>,
+        {{ appViagemService.qtdchildren }} <strong> criança(s)</strong>
         <mat-divider></mat-divider>
       </div>
 
       <div class="uppercase mt-5">
-        <strong> Valor abatido por milhas:</strong> R$ 0,00
+        <strong>Tipo de Vôo:</strong> Classe
+        {{ appViagemService.form.value.typeFlight }}
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="uppercase mt-5">
+        R$ {{ pricePerAdult | number: "4.2-2" }} <strong> por adulto</strong>
         <mat-divider></mat-divider>
       </div>
       <div class="uppercase mt-5">
-        <strong> Total:</strong> R$ 4.074,95
+        R$ {{ pricePerChildren | number: "4.2-2" }}
+        <strong> por criança</strong>
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="uppercase mt-5">
+        <strong> Milhas:</strong>
+        {{ appViagemService.form.value.miles | number: "4.1-2" }}
+        <mat-divider></mat-divider>
+      </div>
+
+      <div class="uppercase mt-5">
+        <strong> Valor abatido por milhas:</strong> R$
+        {{ TotalMilesKilled | number: "4.1-2" }}
+        <mat-divider></mat-divider>
+      </div>
+      <div class="uppercase mt-5">
+        <strong> Total:</strong> R$
+        {{
+          pricePerAdult + pricePerChildren - TotalMilesKilled | number: "4.1-2"
+        }}
       </div>
     </div>
   </mat-card-content>

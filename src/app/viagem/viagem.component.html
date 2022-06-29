@@ -11,7 +11,6 @@
         </mat-select>
       </mat-form-field>
 
-      {{appViagemService.citySelectOrigin}}
       <mat-form-field appearance="fill">
         <mat-label>Cidade de Origem</mat-label>
         <mat-select [disabled]="!appViagemService.citiesOrigin?.length" [(value)]="appViagemService.citySelectOrigin">
@@ -76,7 +75,7 @@
       </form>
 
       <mat-divider style="margin: 1em;"></mat-divider>
-      <span class="qtd_viagem">Ultilizar {{appViagemService.form.value.miles | number: '5.1-2'}} milhas</span>
+      <span class="qtd_viagem">Ultilizar {{appViagemService.form.value.miles | number: '4.1-1'}} milhas</span>
       <form [formGroup]="appViagemService.form">
         <mat-slider thumbLabel min="0" max="100000" tickInterval="1" aria-label="units" color="primary"
           formControlName="miles" style="width: 100%;">

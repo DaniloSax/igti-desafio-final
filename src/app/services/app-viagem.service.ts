@@ -3,77 +3,70 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { City, Country } from './http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppViagemService {
+  constructor() {}
 
-  constructor() { }
-
-  countriesOrigin: Country[] = []
-  countriesDestiny: Country[] = []
-  citiesOrigin?: City[] = []
-  citiesDestiny?: City[] = []
-  qtdAdults: number = 0
-  qtdchildren: number = 0
-  typeFlight: string = ''
+  countriesOrigin: Country[] = [];
+  countriesDestiny: Country[] = [];
+  citiesOrigin?: City[] = [];
+  citiesDestiny?: City[] = [];
+  qtdAdults: number = 0;
+  qtdchildren: number = 0;
   form = new FormGroup({
     miles: new FormControl<number>(0),
     typeFlight: new FormControl<string>(''),
-  })
+  });
 
-  private _countrySelectOrigin?: Country
-  private _countrySelectDestiny?: Country
-  private _citySelectOrigin?: City
-  private _citySelectDestiny?: City
-
-  countrySelectOriginOutput?: string
-  countrySelectDestinyOutput?: string
-  citySelectOriginOutput?: string
-  citySelectDestinyOutput?: string
+  private _countrySelectOrigin: Country = { cities: [], country: '' };
+  private _countrySelectDestiny: Country = { cities: [], country: '' };
+  private _citySelectOrigin: City = { city: '', latitude: 0, longitude: 0 };
+  private _citySelectDestiny: City = { city: '', latitude: 0, longitude: 0 };
 
   get countrySelectOrigin() {
-    return this._countrySelectOrigin ?? null;
+    return this._countrySelectOrigin;
   }
-  set countrySelectOrigin(country) {
-    this.citiesOrigin = this.countriesOrigin.find(c => c === country)?.cities
-    this.countrySelectOriginOutput = country?.country
-    const c = { value: country }
-    this._countrySelectOrigin = c?.value
+  set countrySelectOrigin(country: Country) {
+    this.citiesOrigin = this.countriesOrigin.find((c) => c === country)?.cities;
+    this._countrySelectOrigin = country;
   }
 
   get countrySelectDestiny() {
-    return this._countrySelectDestiny ?? null;
+    return this._countrySelectDestiny;
   }
-  set countrySelectDestiny(country) {
-    this.citiesDestiny = this.countriesDestiny.find(c => c === country)?.cities
-    this.countrySelectDestinyOutput = country?.country
+  set countrySelectDestiny(country: Country) {
+    this.citiesDestiny = this.countriesDestiny.find(
+      (c) => c === country
+    )?.cities;
+    this._countrySelectDestiny = country;
   }
 
   get citySelectOrigin() {
-    return this._citySelectOrigin ?? null;
+    return this._citySelectOrigin;
   }
-  set citySelectOrigin(city) {
-    this.citySelectOriginOutput = city?.city
+  set citySelectOrigin(city: City) {
+    this._citySelectOrigin = city;
   }
 
   get citySelectDestiny() {
-    return this._citySelectDestiny ?? null;
+    return this._citySelectDestiny;
   }
-  set citySelectDestiny(city) {
-    this.citySelectDestinyOutput = city?.city
+  set citySelectDestiny(city: City) {
+    this._citySelectDestiny = city;
   }
 
   incrementQtdAdults() {
-    this.qtdAdults++
+    this.qtdAdults++;
   }
   decrementQtdAdults() {
-    if (this.qtdAdults > 0) this.qtdAdults--
+    if (this.qtdAdults > 0) this.qtdAdults--;
   }
 
   incrementQtdchildren() {
-    this.qtdchildren++
+    this.qtdchildren++;
   }
   decrementQtdchildren() {
-    if (this.qtdchildren > 0) this.qtdchildren--
+    if (this.qtdchildren > 0) this.qtdchildren--;
   }
 }

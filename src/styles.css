@@ -1,18 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-.container-viagem{
+.container-viagem {
   display: flex;
   flex-direction: column;
 }
 
-.m-5{
+.m-5 {
   margin: 3em 3em;
 }
 
-.qtd_viagem{
+.qtd_viagem {
   font-size: x-large;
 }
 
@@ -23,5 +29,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #fff;
   color: #444;
 }
-
-
